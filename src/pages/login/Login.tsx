@@ -25,10 +25,13 @@ const Login: React.FC = () => {
   const handleLogin = async () => {
     try {
       const { email, password } = form;
-      const { data } = await axios.post("http://localhost:4000/login", {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_URL_SERVER}/login`,
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem("user", JSON.stringify(data));
       setErrorLogin(false);
       navigate("/");

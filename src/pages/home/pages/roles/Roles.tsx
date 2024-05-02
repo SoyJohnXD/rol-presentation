@@ -96,7 +96,7 @@ const Roles: React.FC = () => {
     delete formToSend.permision;
     try {
       const response = await axios.delete(
-        `http://localhost:4000/roles/${roleToDelete}`,
+        `${import.meta.env.VITE_URL_SERVER}/roles/${roleToDelete}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -129,7 +129,7 @@ const Roles: React.FC = () => {
     delete formToSend.permision;
     try {
       const response = await axios.put(
-        `http://localhost:4000/roles/${rolSelected}`,
+        `${import.meta.env.VITE_URL_SERVER}/roles/${rolSelected}`,
         formToSend,
         {
           headers: {
@@ -158,7 +158,7 @@ const Roles: React.FC = () => {
     delete formToSend.permision;
     try {
       const response = await axios.post(
-        `http://localhost:4000/roles`,
+        `${import.meta.env.VITE_URL_SERVER}/roles`,
         formToSend,
         {
           headers: {

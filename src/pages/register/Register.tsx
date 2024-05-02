@@ -39,7 +39,7 @@ const Register: React.FC = () => {
     if (errorPassword) return;
     try {
       const { email, password } = form;
-      await axios.post("http://localhost:4000/register", {
+      await axios.post(`${import.meta.env.VITE_URL_SERVER}/register`, {
         email,
         password,
       });

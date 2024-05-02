@@ -40,11 +40,14 @@ const Users: React.FC = () => {
   const getUserList = async (): Promise<void> => {
     const token = userData?.access_token;
     try {
-      const response = await axios.get("http://localhost:4000/users", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_URL_SERVER}/users`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setUserList(response.data);
     } catch (error) {
       console.error("Error al realizar la solicitud:", error);
@@ -55,7 +58,9 @@ const Users: React.FC = () => {
     const token = userData?.access_token;
     try {
       const response = await axios.put(
-        `http://localhost:4000/update_user_role/${userSelected?.id}/${rolSelected}`,
+        `${import.meta.env.VITE_URL_SERVER}/update_user_role/${
+          userSelected?.id
+        }/${rolSelected}`,
         {},
         {
           headers: {
